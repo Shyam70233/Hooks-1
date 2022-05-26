@@ -1,19 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useWindow } from './hooks';
 import './style.css';
 
 export default function App() {
-  const [x, setx] = useState(0);
-
-  const abc = () => {
-    if (x < 6000) {
-      setTimeout(() => setx(x + 1), 100);
-    }
-  };
-
-  useEffect(abc, [x]);
+  const { width, height } = useWindow();
   return (
     <div>
-      <h1>Hello Time : {x} </h1>
+      <h1>Width: {width}</h1>
+      <h1>Height: {height}</h1>
     </div>
   );
 }
